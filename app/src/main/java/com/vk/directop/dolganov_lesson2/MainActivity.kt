@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 
-private const val KEY_ONE = "HELLO_KEY"
+const val KEY_ONE = "HELLO_KEY"
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         btSecondActivity.setOnClickListener {
             val intent1 = Intent(this, SecondActivity::class.java)
             intent1.putExtra(
-                KEY_ONE,
-                "${resources.getString(R.string.textFromMain)}: \n ${tvInfo1.text}"
+                KEY_ONE, "${resources.getString(R.string.textFromMain)}: \n\n ${tvInfo1.text}"
             )
             startForResult.launch(intent1)
         }

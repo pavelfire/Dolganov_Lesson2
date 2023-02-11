@@ -7,7 +7,7 @@ import androidx.activity.result.contract.ActivityResultContract
 
 class SecondActivityContract : ActivityResultContract<Unit, String?>() {
 
-    override fun parseResult(resultCode: Int, result: Intent?) : String? {
+    override fun parseResult(resultCode: Int, result: Intent?): String? {
         if (resultCode != Activity.RESULT_OK) {
             return null
         }
