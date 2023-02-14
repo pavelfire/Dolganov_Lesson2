@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Dolganov_Lesson_3_1</string>
+    <string name="a_logo">Aston logo</string>
+    <string name="greeting_pic">greeting Aston picture</string>
 </resources>
