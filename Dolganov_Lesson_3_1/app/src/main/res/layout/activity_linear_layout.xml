@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/MyTextStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundFlags"
@@ -15,19 +14,19 @@
         <ImageView
             android:id="@+id/imageView"
             style="@style/LinearImageStyle"
-            android:contentDescription="austria"
+            android:contentDescription="@string/austria"
             app:srcCompat="@drawable/austria" />
 
         <ImageView
             android:id="@+id/imageView2"
             style="@style/LinearImageStyle"
-            android:contentDescription="poland"
+            android:contentDescription="@string/poland"
             app:srcCompat="@drawable/poland" />
 
         <ImageView
             android:id="@+id/imageView3"
             style="@style/LinearImageStyle"
-            android:contentDescription="italy"
+            android:contentDescription="@string/italy"
             app:srcCompat="@drawable/italy" />
     </LinearLayout>
 
@@ -37,42 +36,44 @@
         <ImageView
             android:id="@+id/imageView4"
             style="@style/LinearImageStyle"
-            android:contentDescription="colombia"
+            android:contentDescription="@string/colombia"
             app:srcCompat="@drawable/colombia" />
 
         <ImageView
             android:id="@+id/imageView5"
             style="@style/LinearImageStyle"
-            android:contentDescription="madagascar"
+            android:contentDescription="@string/madagascar"
             app:srcCompat="@drawable/madagascar" />
 
         <ImageView
             android:id="@+id/imageView6"
             style="@style/LinearImageStyle"
-            android:contentDescription="thailand"
+            android:contentDescription="@string/thailand"
             app:srcCompat="@drawable/thailand" />
     </LinearLayout>
 
     <LinearLayout style="@style/LinearThreeImagesStyle">
 
 
+
         <ImageView
             android:id="@+id/imageView7"
             style="@style/LinearImageStyle"
-            android:contentDescription="thailand"
-            app:srcCompat="@drawable/thailand" />
+            android:contentDescription="@string/turkey"
+            app:srcCompat="@drawable/turkey" />
 
         <ImageView
             android:id="@+id/imageView8"
             style="@style/LinearImageStyle"
-            android:contentDescription="denmark"
+            android:contentDescription="@string/denmark"
             app:srcCompat="@drawable/denmark" />
-
         <ImageView
             android:id="@+id/imageView9"
             style="@style/LinearImageStyle"
-            android:contentDescription="switzerland"
+            android:contentDescription="@string/switzerland"
             app:srcCompat="@drawable/switzerland" />
+
+
     </LinearLayout>
 
 
