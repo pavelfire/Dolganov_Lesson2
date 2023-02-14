@@ -2,106 +2,75 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MyTextStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundFlags"
     android:orientation="vertical"
     tools:context=".LinearLayoutActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".33"
-        android:orientation="horizontal">
+
+    <LinearLayout style="@style/LinearThreeImagesStyle">
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
+            android:contentDescription="austria"
             app:srcCompat="@drawable/austria" />
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
+            android:contentDescription="poland"
             app:srcCompat="@drawable/poland" />
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
+            android:contentDescription="italy"
             app:srcCompat="@drawable/italy" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".33"
-        android:orientation="horizontal">
+
+    <LinearLayout style="@style/LinearThreeImagesStyle">
 
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
             android:contentDescription="colombia"
             app:srcCompat="@drawable/colombia" />
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
             android:contentDescription="madagascar"
             app:srcCompat="@drawable/madagascar" />
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
             android:contentDescription="thailand"
             app:srcCompat="@drawable/thailand" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight=".33"
-        android:orientation="horizontal">
+
+    <LinearLayout style="@style/LinearThreeImagesStyle">
 
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
             android:contentDescription="thailand"
             app:srcCompat="@drawable/thailand" />
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
             android:contentDescription="denmark"
             app:srcCompat="@drawable/denmark" />
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            style="@style/LinearImageStyle"
             android:contentDescription="switzerland"
             app:srcCompat="@drawable/switzerland" />
     </LinearLayout>
