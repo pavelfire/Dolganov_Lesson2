@@ -1,3 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dolganov_Lesson2</string>
+    <string name="selected_language">At the moment, the English language is selected in system, you can select Russian in system language settings.</string>
+    <string name="second_activity">Second Activity</string>
+    <string name="enterTextToSend">Enter the text to send to the main Activity</string>
+    <string name="yourMessage">Your message</string>
+    <string name="sendButton">Send</string>
+    <string name="hereCanBeMessage">There could have been a message from MainActivity</string>
+    <string name="textFromMain">Text from MainActivity</string>
+    <string name="tvInfo">In text below used property android:freezesText="true"</string>
 </resources>

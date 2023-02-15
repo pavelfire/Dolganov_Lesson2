@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Долганов_Урок_2</string>
+    <string name="selected_language">В данный момент выбран русский язык в системе, так же можно выбрать английский язык.</string>
+    <string name="second_activity">Вторая Activity</string>
+    <string name="enterTextToSend">Введите текст для передачи в основное Activity</string>
+    <string name="yourMessage">Ваше сообщение</string>
+    <string name="sendButton">Отправить</string>
+    <string name="hereCanBeMessage">Тут могло быть сообщение из MainActivity</string>
+    <string name="textFromMain">Текст из MainActivity</string>
+    <string name="tvInfo">В тесте ниже использовано свойство android:freezesText="true"</string>
+</resources>
