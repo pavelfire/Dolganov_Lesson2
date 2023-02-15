@@ -24,10 +24,12 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
             group.visibility = View.INVISIBLE
         }
+
         btVacancies.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             group.visibility = View.INVISIBLE
         }
+
         btGallery.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             group.visibility = View.INVISIBLE
@@ -38,10 +40,7 @@ class MainActivity : AppCompatActivity() {
             group.visibility = View.VISIBLE
         }
 
-        fun showProgress(){
-            progressBar.visibility = View.VISIBLE
 
-        }
     }
 
 

@@ -22,6 +22,7 @@
         android:id="@+id/a_logo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/a_logo"
         android:scaleType="fitStart"
@@ -35,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="103dp" />
+        app:layout_constraintGuide_begin="104dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -43,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="ИТ-решения для\nразвития бизнеса"
+        android:text="@string/it_bis"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -54,8 +55,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Разработка программного\nобеспечения"
+        android:text="@string/develop_programs"
         android:textColor="@color/grey_aston_text"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -66,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="О нас:"
+        android:text="@string/about"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -78,9 +78,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="Aston - компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам по всему миру трансформировать бизнес, создавая эффективные мобильные и десктопные решения."
+        android:text="@string/aston_15"
         android:textColor="@color/grey_aston_text"
-        android:textSize="19sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -89,7 +89,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Офисы"
+        android:text="@string/offices"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -100,7 +100,7 @@
     <Button
         android:id="@+id/button"
         style="@style/office_button"
-        android:text="Москва"
+        android:text="@string/moscow"
         app:backgroundTint="@color/office_color"
         app:cornerRadius="14dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +109,7 @@
     <Button
         android:id="@+id/button1"
         style="@style/office_button"
-        android:text="Казань"
+        android:text="@string/kazan"
         android:textColor="@color/grey_aston_text"
         app:backgroundTint="@color/office_color"
         app:cornerRadius="14dp"
@@ -119,7 +119,7 @@
     <Button
         android:id="@+id/button2"
         style="@style/office_button"
-        android:text="Ростов-на-Дону"
+        android:text="@string/rostov_on_don"
         android:textColor="@color/grey_aston_text"
         app:backgroundTint="@color/office_color"
         app:cornerRadius="14dp"
@@ -129,7 +129,7 @@
     <Button
         android:id="@+id/button3"
         style="@style/office_button"
-        android:text="Минск"
+        android:text="@string/minsk"
         android:textColor="@color/grey_aston_text"
         app:backgroundTint="@color/office_color"
         app:cornerRadius="14dp"
@@ -139,7 +139,7 @@
     <Button
         android:id="@+id/button4"
         style="@style/office_button"
-        android:text="Гомель"
+        android:text="@string/gomel"
         android:textColor="@color/grey_aston_text"
         app:backgroundTint="@color/office_color"
         app:cornerRadius="14dp"
@@ -167,7 +167,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:paddingStart="0dp"
         app:constraint_referenced_ids="button, button1, button2, button3, button4"
         app:flow_horizontalBias="0"
         app:flow_horizontalGap="5dp"
@@ -182,7 +181,7 @@
         android:id="@+id/bt_contacts"
         style="@style/bottom_buttons"
         android:layout_width="wrap_content"
-        android:text="Контакты"
+        android:text="@string/contacts"
         app:cornerRadius="4dp"
         app:layout_constraintEnd_toStartOf="@+id/bt_vacancies"
         app:layout_constraintHorizontal_bias="0.5"
@@ -193,7 +192,7 @@
     <Button
         android:id="@+id/bt_vacancies"
         style="@style/bottom_buttons"
-        android:text="Вакансии"
+        android:text="@string/vacancies"
         android:textColor="@color/white"
         app:cornerRadius="4dp"
         app:layout_constraintEnd_toStartOf="@+id/bt_gallery"
@@ -204,20 +203,19 @@
     <Button
         android:id="@+id/bt_gallery"
         style="@style/bottom_buttons"
-        android:text="Галерея"
+        android:text="@string/gallery"
         android:textColor="@color/white"
         app:cornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bt_vacancies"
         app:layout_constraintTop_toBottomOf="@+id/flow1" />
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="textView5, flow1, bt_contacts, bt_vacancies, bt_gallery"
-        />
-
+        app:constraint_referenced_ids="textView5, flow1, bt_contacts, bt_vacancies, bt_gallery" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
