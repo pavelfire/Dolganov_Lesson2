@@ -9,16 +9,19 @@
     tools:context=".LinearLayoutActivity">
 
     <LinearLayout style="@style/LinearThreeImagesStyle">
+
         <ImageView
             android:id="@+id/imageView"
             style="@style/LinearImageStyle"
             android:contentDescription="@string/austria"
             app:srcCompat="@drawable/austria" />
+
         <ImageView
             android:id="@+id/imageView2"
             style="@style/LinearImageStyle"
             android:contentDescription="@string/poland"
             app:srcCompat="@drawable/poland" />
+
         <ImageView
             android:id="@+id/imageView3"
             style="@style/LinearImageStyle"
@@ -27,16 +30,19 @@
     </LinearLayout>
 
     <LinearLayout style="@style/LinearThreeImagesStyle">
+
         <ImageView
             android:id="@+id/imageView4"
             style="@style/LinearImageStyle"
             android:contentDescription="@string/colombia"
             app:srcCompat="@drawable/colombia" />
+
         <ImageView
             android:id="@+id/imageView5"
             style="@style/LinearImageStyle"
             android:contentDescription="@string/madagascar"
             app:srcCompat="@drawable/madagascar" />
+
         <ImageView
             android:id="@+id/imageView6"
             style="@style/LinearImageStyle"
@@ -45,21 +51,24 @@
     </LinearLayout>
 
     <LinearLayout style="@style/LinearThreeImagesStyle">
+
         <ImageView
             android:id="@+id/imageView8"
             style="@style/LinearImageStyle"
             android:contentDescription="@string/denmark"
             app:srcCompat="@drawable/denmark" />
+
         <ImageView
             android:id="@+id/imageView9"
             style="@style/LinearImageStyle"
             android:contentDescription="@string/switzerland"
             app:srcCompat="@drawable/switzerland" />
+
         <ImageView
             android:id="@+id/imageView7"
             style="@style/LinearImageStyle"
-            android:visibility="invisible"
             android:contentDescription="@string/turkey"
+            android:visibility="invisible"
             app:srcCompat="@drawable/turkey" />
 
     </LinearLayout>
