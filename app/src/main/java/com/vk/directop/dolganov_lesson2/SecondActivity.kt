@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.vk.directop.dolganov_lesson2.SecondActivityContract.Companion.RESULT_KEY
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,5 +29,14 @@ class SecondActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, result)
             finish()
         }
+    }
+    private fun sendResultAndFinish(){
+        val text = findViewById<EditText>(R.id.editText).text.toString()
+        val result = Intent().putExtra(RESULT_KEY, text)
+        when (text.isBlank()){
+            true -> setResult(Activity.RESULT_CANCELED, result)
+            false -> setResult(Activity.RESULT_OK, result)
+        }
+        finish()
     }
 }
