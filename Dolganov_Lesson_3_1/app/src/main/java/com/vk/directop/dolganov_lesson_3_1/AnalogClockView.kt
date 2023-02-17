@@ -23,7 +23,7 @@ constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        drawCircle(canvas)
+        drawClockFace(canvas)
 
         paint.strokeWidth = 10f
         canvas?.drawLine(width / 2f, height / 2f, 60f, 50f, paint)
@@ -31,13 +31,27 @@ constructor(
         paint.color = Color.BLUE
         paint.strokeWidth = 30f
 
-        canvas?.drawLine(300f, 300f, width/2f, height/2f, paint)
+        canvas?.drawLine(300f, 300f, width / 2f, height / 2f, paint)
     }
 
-    fun drawCircle(canvas: Canvas?){
-        val w = (width/2).toFloat()
-        val h = (height/2).toFloat()
+    private fun drawClockFace(canvas: Canvas?) {
+        val w = (width / 2).toFloat()
+        val h = (height / 2).toFloat()
+        val radius = if (height >= width) width / 2.5f else height / 2.5f
+        val pointLength = 50
 
-        canvas?.drawCircle(w,h,300f,paint)
+        paint.strokeWidth = 20f
+        canvas?.drawCircle(w, h, radius, paint)
+
+        paint.strokeWidth = 20f
+        canvas?.drawLine(w + radius - pointLength, h, w + radius, h, paint)
+        canvas?.drawLine(w - radius + pointLength, h, w - radius, h, paint)
+        canvas?.drawLine(w, h + radius - pointLength, w, h + radius, paint)
+        canvas?.drawLine(w, h - radius + pointLength, w, h - radius, paint)
+
+        //canvas?.drawLine(w, h - radius + pointLength, w, h - radius, paint)
+
+
+
     }
 }
