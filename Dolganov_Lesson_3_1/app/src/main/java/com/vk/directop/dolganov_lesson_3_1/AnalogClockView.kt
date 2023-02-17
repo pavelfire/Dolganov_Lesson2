@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -27,7 +26,6 @@ constructor(
     lateinit var paint: Paint
     private var isInit = false
     private val numbers = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
-    private val rect: Rect = Rect()
 
 
     private fun initClock() {
@@ -59,14 +57,16 @@ constructor(
 
     private fun drawHand(canvas: Canvas, loc: Double, arrowType: ClockArrow) {
         val angle = Math.PI * loc / 30 - Math.PI / 2
+        val handLength = height.coerceAtMost(width)
         val handRadius  = when (arrowType){
-            ClockArrow.HOUR -> 300f
-            ClockArrow.MINUTE -> 54f
-            ClockArrow.SECOND -> 200f
+            ClockArrow.HOUR -> handLength * 0.25f
+            ClockArrow.MINUTE -> handLength * 0.3f
+            ClockArrow.SECOND -> handLength * 0.35f
         }
+        val tailHand = 60
         canvas.drawLine(
-            width / 2f - (cos(angle) * 50).toFloat(),
-            height / 2f - (sin(angle) * 50).toFloat(),
+            width / 2f - (cos(angle) * tailHand).toFloat(),
+            height / 2f - (sin(angle) * tailHand).toFloat(),
             (width / 2 + cos(angle) * handRadius).toFloat(),
             (height / 2 + sin(angle) * handRadius).toFloat(),
             paint
@@ -77,11 +77,15 @@ constructor(
         val c = Calendar.getInstance()
         var hour = c[Calendar.HOUR_OF_DAY].toFloat()
         hour = if (hour > 12) hour - 12 else hour
-        drawHand(canvas, ((hour + c[Calendar.MINUTE] / 60) * 5f).toDouble(), ClockArrow.HOUR)
-        paint.color = Color.BLUE
-        drawHand(canvas, c[Calendar.MINUTE].toDouble(), ClockArrow.MINUTE)
+        paint.strokeWidth = 15f
         paint.color = Color.RED
         drawHand(canvas, c[Calendar.SECOND].toDouble(), ClockArrow.SECOND)
+        paint.strokeWidth = 20f
+        paint.color = Color.BLUE
+        drawHand(canvas, c[Calendar.MINUTE].toDouble(), ClockArrow.MINUTE)
+        paint.strokeWidth = 27f
+        paint.color = Color.BLACK
+        drawHand(canvas, ((hour + c[Calendar.MINUTE] / 60) * 5f).toDouble(), ClockArrow.HOUR)
     }
 
     private fun drawClockStroke(canvas: Canvas) {
