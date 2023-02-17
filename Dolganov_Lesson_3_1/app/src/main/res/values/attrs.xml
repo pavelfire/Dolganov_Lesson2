@@ -4,6 +4,9 @@
         <attr name="hourHandColor" format="color"/>
         <attr name="minuteHandColor" format="color"/>
         <attr name="secondHandColor" format="color"/>
+        <attr name="hourHandLength" format="dimension"/>
+        <attr name="minuteHandLength" format="dimension"/>
+        <attr name="secondHandLength" format="dimension"/>
     </declare-styleable>
 
     <attr name="analogClockStyle" format="reference"/>

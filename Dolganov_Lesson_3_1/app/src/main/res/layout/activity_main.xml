@@ -12,6 +12,7 @@
         app:hourHandColor="@color/black"
         app:minuteHandColor="@color/clock_blue"
         app:secondHandColor="@color/clock_red"
+        app:secondHandLength="155dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
