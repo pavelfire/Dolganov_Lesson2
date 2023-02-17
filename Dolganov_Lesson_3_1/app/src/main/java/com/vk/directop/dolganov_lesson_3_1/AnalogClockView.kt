@@ -54,7 +54,6 @@ constructor(
         drawCircle(canvas)
         drawClockStroke(canvas)
         drawHands(canvas)
-        //drawCenter(canvas)
         postInvalidateDelayed(500)
         invalidate()
     }
@@ -106,11 +105,6 @@ constructor(
             canvas.drawLine(x, y, xEnd, yEnd, paint)
         }
     }
-
-//    private fun drawCenter(canvas: Canvas) {
-//        paint.style = Paint.Style.FILL
-//        canvas.drawCircle(width / 2f, height / 2f, 22f, paint)
-//    }
 
     private fun drawCircle(canvas: Canvas) {
         paint.reset()
