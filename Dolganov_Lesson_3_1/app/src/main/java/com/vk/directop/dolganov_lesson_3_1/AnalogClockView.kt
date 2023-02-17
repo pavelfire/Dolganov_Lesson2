@@ -1,6 +1,7 @@
 package com.vk.directop.dolganov_lesson_3_1
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -10,12 +11,14 @@ import android.view.View
 import java.util.*
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlin.properties.Delegates
 
 class AnalogClockView
 @JvmOverloads
 constructor(
     context: Context,
-    attrs: AttributeSet? = null, defStyleAttr: Int = 0
+    attrs: AttributeSet? = null, defStyleAttr: Int = 0,
+    //defStyleRes: Int
 ) : View(context, attrs, defStyleAttr) {
     private var padding = 0
     private var fontSize = 0
@@ -26,6 +29,10 @@ constructor(
     lateinit var paint: Paint
     private var isInit = false
     private val numbers = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)
+
+    private var hourColor by Delegates.notNull<Int>()
+    private var minuteColor by Delegates.notNull<Int>()
+    private var secondColor by Delegates.notNull<Int>()
 
 
     private fun initClock() {
@@ -58,7 +65,7 @@ constructor(
     private fun drawHand(canvas: Canvas, loc: Double, arrowType: ClockArrow) {
         val angle = Math.PI * loc / 30 - Math.PI / 2
         val handLength = height.coerceAtMost(width)
-        val handRadius  = when (arrowType){
+        val handRadius = when (arrowType) {
             ClockArrow.HOUR -> handLength * 0.25f
             ClockArrow.MINUTE -> handLength * 0.3f
             ClockArrow.SECOND -> handLength * 0.35f
@@ -78,13 +85,13 @@ constructor(
         var hour = c[Calendar.HOUR_OF_DAY].toFloat()
         hour = if (hour > 12) hour - 12 else hour
         paint.strokeWidth = 15f
-        paint.color = Color.RED
+        paint.color = secondColor
         drawHand(canvas, c[Calendar.SECOND].toDouble(), ClockArrow.SECOND)
         paint.strokeWidth = 20f
-        paint.color = Color.BLUE
+        paint.color = minuteColor
         drawHand(canvas, c[Calendar.MINUTE].toDouble(), ClockArrow.MINUTE)
         paint.strokeWidth = 27f
-        paint.color = Color.BLACK
+        paint.color = hourColor
         drawHand(canvas, ((hour + c[Calendar.MINUTE] / 60) * 5f).toDouble(), ClockArrow.HOUR)
     }
 
@@ -92,7 +99,7 @@ constructor(
         paint.textSize = fontSize.toFloat()
         for (number in numbers) {
             paint.strokeWidth = 20f
-            paint.color =Color.BLACK
+            paint.color = Color.BLACK
 
             val angle = Math.PI / 6 * (number - 3)
             val x = (width / 2 + cos(angle) * radius).toFloat()
@@ -116,8 +123,29 @@ constructor(
         paint.isAntiAlias = true
         canvas.drawCircle(width / 2f, height / 2f, radius + padding - 10f, paint)
     }
+
+    init {
+        if (attrs != null) {
+            initAttributes(attrs, defStyleAttr)//, defStyleRes )
+        }
+    }
+
+    private fun initAttributes(
+        attributesSet: AttributeSet?, defStyleAttr: Int
+    ) {
+        val typedArray: TypedArray = context.obtainStyledAttributes(
+            attributesSet,
+            R.styleable.AnalogClockView,
+            defStyleAttr,
+            0
+        )
+        hourColor = typedArray.getColor(R.styleable.AnalogClockView_hourHandColor, Color.MAGENTA)
+        minuteColor = typedArray.getColor(R.styleable.AnalogClockView_minuteHandColor, Color.YELLOW)
+        secondColor = typedArray.getColor(R.styleable.AnalogClockView_secondHandColor, Color.GREEN)
+        typedArray.recycle()
+    }
 }
 
-enum class ClockArrow{
+enum class ClockArrow {
     HOUR, MINUTE, SECOND
 }
