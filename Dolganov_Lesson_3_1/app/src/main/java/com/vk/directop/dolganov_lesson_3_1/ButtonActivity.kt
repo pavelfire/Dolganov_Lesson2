@@ -1,8 +1,8 @@
 package com.vk.directop.dolganov_lesson_3_1
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.vk.directop.dolganov_lesson_3_1.databinding.ActivityButtonBinding
 
 class ButtonActivity : AppCompatActivity() {
@@ -15,17 +15,12 @@ class ButtonActivity : AppCompatActivity() {
         binding = ActivityButtonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         with(binding) {
 
-
-//            mainBtn.btnSubtitle.text = "Programmaticaly changed text"
-//
-//            mainBtn.root.setOnClickListener{
-//                it.visibility = View.GONE
-//                mainBtn.mainProgressBar.visibility = View.VISIBLE
-            //           }
+            mainBtn.setListener {
+                if (it == OnCustomCallbackViewAction.PUSH)
+                    Toast.makeText(this@ButtonActivity, "pressed", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

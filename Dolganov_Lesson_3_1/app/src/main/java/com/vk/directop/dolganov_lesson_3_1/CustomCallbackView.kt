@@ -3,10 +3,14 @@ package com.vk.directop.dolganov_lesson_3_1
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.vk.directop.dolganov_lesson_3_1.databinding.CustomButtonBinding
+
+enum class OnCustomCallbackViewAction{
+    PUSH, NOTPUSH
+}
+
+typealias OnCustomCallbackViewActionListener = (OnCustomCallbackViewAction) -> Unit
 
 class CustomCallbackView
 @JvmOverloads
@@ -17,12 +21,15 @@ constructor(
 
     private val binding: CustomButtonBinding
 
+    private var listener: OnCustomCallbackViewActionListener? = null
+
 
     init{
         val inflater = LayoutInflater.from(context)
         inflater.inflate(R.layout.custom_button, this, true)
         binding = CustomButtonBinding.bind(this)
         initializeAttributes(attrs, defStyleAttr)
+        initListeners()
     }
 
     private fun initializeAttributes(attrs: AttributeSet?, defStyleAttr: Int){
@@ -51,8 +58,16 @@ constructor(
             }
         }
 
-
         typedArray.recycle()
+    }
+
+    private fun initListeners(){
+        binding.root.setOnClickListener {
+            this.listener?.invoke(OnCustomCallbackViewAction.PUSH)
+        }
+    }
+    fun setListener(listener: OnCustomCallbackViewActionListener?){
+        this.listener = listener
     }
 
 
