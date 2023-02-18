@@ -23,7 +23,8 @@ class ButtonActivity : AppCompatActivity() {
 
             mainBtn.setListener {
                 if (it == OnCustomCallbackViewAction.PUSH)
-                    Toast.makeText(this@ButtonActivity, "pressed", Toast.LENGTH_LONG).show()
+                    mainBtn.isProgressMode = mainBtn.isProgressMode != true
+                Toast.makeText(this@ButtonActivity, "pressed", Toast.LENGTH_LONG).show()
             }
         }
     }

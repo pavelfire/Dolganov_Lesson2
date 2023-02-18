@@ -25,6 +25,24 @@ constructor(
 
     private var listener: OnCustomCallbackViewActionListener? = null
 
+    var isProgressMode: Boolean = false
+        get() = field
+        set(value) {
+            field = value
+            with(binding) {
+                if (value) {
+                    btnTitle.visibility = INVISIBLE
+                    btnSubtitle.visibility = INVISIBLE
+                    btnIcon.visibility = INVISIBLE
+                    mainProgressBar.visibility = VISIBLE
+                } else {
+                    btnIcon.visibility = VISIBLE
+                    btnTitle.visibility = VISIBLE
+                    btnSubtitle.visibility = VISIBLE
+                    mainProgressBar.visibility = GONE
+                }
+            }
+        }
 
     init {
         val inflater = LayoutInflater.from(context)
@@ -48,17 +66,9 @@ constructor(
             val ccvImage = typedArray.getDrawable(R.styleable.CustomCallbackView_ccvImage)
             setCcvImage(ccvImage)
 
-            val isProgressMode =
-                typedArray.getBoolean(R.styleable.CustomCallbackView_ccvProgressBar, false)
-            if (isProgressMode) {
-                btnTitle.visibility = INVISIBLE
-                btnSubtitle.visibility = INVISIBLE
-                mainProgressBar.visibility = VISIBLE
-            } else {
-                btnTitle.visibility = VISIBLE
-                btnSubtitle.visibility = VISIBLE
-                mainProgressBar.visibility = GONE
-            }
+            isProgressMode =
+                typedArray.getBoolean(R.styleable.CustomCallbackView_isProgressMode, false)
+
         }
 
         typedArray.recycle()

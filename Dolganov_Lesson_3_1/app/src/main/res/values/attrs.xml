@@ -5,7 +5,7 @@
         <attr name="ccvImage" format="reference"/>
         <attr name="ccvTitle" format="string"/>
         <attr name="ccvSubtitle" format="string"/>
-        <attr name="ccvProgressBar" format="boolean"/>
+        <attr name="isProgressMode" format="boolean"/>
 
     </declare-styleable>
 </resources>
