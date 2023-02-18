@@ -11,14 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:ccvImage="@drawable/a_logo"
-        app:ccvTitle="Senior Android Developer"
         app:ccvSubtitle="How to stand a good programmer"
+        app:ccvTitle="Senior Android Developer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

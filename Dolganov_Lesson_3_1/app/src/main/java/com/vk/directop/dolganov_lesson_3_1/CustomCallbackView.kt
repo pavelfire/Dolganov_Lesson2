@@ -26,7 +26,6 @@ constructor(
     private var listener: OnCustomCallbackViewActionListener? = null
 
     var isProgressMode: Boolean = false
-        get() = field
         set(value) {
             field = value
             with(binding) {
@@ -56,20 +55,17 @@ constructor(
         if (attrs == null) return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomCallbackView)
 
-        with(binding) {
-            val ccvTitle = typedArray.getString(R.styleable.CustomCallbackView_ccvTitle)
-            setCcvTitle(ccvTitle)
+        val ccvTitle = typedArray.getString(R.styleable.CustomCallbackView_ccvTitle)
+        setCcvTitle(ccvTitle)
 
-            val ccvSubtitle = typedArray.getString(R.styleable.CustomCallbackView_ccvSubtitle)
-            setCcvSubtitle(ccvSubtitle)
+        val ccvSubtitle = typedArray.getString(R.styleable.CustomCallbackView_ccvSubtitle)
+        setCcvSubtitle(ccvSubtitle)
 
-            val ccvImage = typedArray.getDrawable(R.styleable.CustomCallbackView_ccvImage)
-            setCcvImage(ccvImage)
+        val ccvImage = typedArray.getDrawable(R.styleable.CustomCallbackView_ccvImage)
+        setCcvImage(ccvImage)
 
-            isProgressMode =
-                typedArray.getBoolean(R.styleable.CustomCallbackView_isProgressMode, false)
-
-        }
+        isProgressMode =
+            typedArray.getBoolean(R.styleable.CustomCallbackView_isProgressMode, false)
 
         typedArray.recycle()
     }
