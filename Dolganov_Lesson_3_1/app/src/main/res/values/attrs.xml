@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomCallbackView">
+
+        <attr name="ccv_image" format="reference"/>
+        <attr name="ccv_title" format="string"/>
+        <attr name="ccv_subtitle" format="string"/>
+
+    </declare-styleable>
+</resources>

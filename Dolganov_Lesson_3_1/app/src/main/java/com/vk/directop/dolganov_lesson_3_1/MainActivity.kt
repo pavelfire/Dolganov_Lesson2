@@ -1,5 +1,6 @@
 package com.vk.directop.dolganov_lesson_3_1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -26,8 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btVacancies.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
-            group.visibility = View.INVISIBLE
+            startActivity(Intent(this, ButtonActivity::class.java))
         }
 
         btGallery.setOnClickListener {
