@@ -19,12 +19,13 @@ class ButtonActivity : AppCompatActivity() {
 
         with(binding) {
 
-            mainBtn.btnSubtitle.text = "Programmaticaly changed text"
 
-            mainBtn.root.setOnClickListener{
-                it.visibility = View.GONE
-                mainProgressBar.visibility = View.VISIBLE
-            }
+//            mainBtn.btnSubtitle.text = "Programmaticaly changed text"
+//
+//            mainBtn.root.setOnClickListener{
+//                it.visibility = View.GONE
+//                mainBtn.mainProgressBar.visibility = View.VISIBLE
+            //           }
         }
     }
 }

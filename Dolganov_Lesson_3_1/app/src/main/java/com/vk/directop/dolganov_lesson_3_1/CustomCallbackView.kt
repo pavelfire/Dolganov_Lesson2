@@ -2,15 +2,69 @@ package com.vk.directop.dolganov_lesson_3_1
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.vk.directop.dolganov_lesson_3_1.databinding.CustomButtonBinding
 
-class CustomCallbackView(
+class CustomCallbackView
+@JvmOverloads
+constructor(
     context: Context,
-    attrs: AttributeSet?,
-    defStyleAttr: Int,
-    defStyleRes: Int
-) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
+    attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : CardView(context, attrs, defStyleAttr) {
+
+    private val binding: CustomButtonBinding
+
+
+    init{
+        val inflater = LayoutInflater.from(context)
+        inflater.inflate(R.layout.custom_button, this, true)
+        binding = CustomButtonBinding.bind(this)
+        initializeAttributes(attrs, defStyleAttr)
+    }
+
+    private fun initializeAttributes(attrs: AttributeSet?, defStyleAttr: Int){
+        if (attrs == null) return
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomCallbackView)
+
+        with(binding){
+            val ccvTitle = typedArray.getString(R.styleable.CustomCallbackView_ccvTitle)
+            btnTitle.text = ccvTitle
+
+            val ccvSubtitle = typedArray.getString(R.styleable.CustomCallbackView_ccvSubtitle)
+            btnSubtitle.text = ccvSubtitle
+
+            val ccvImage = typedArray.getDrawable(R.styleable.CustomCallbackView_ccvImage)
+            btnIcon.setImageDrawable(ccvImage)
+
+            val isProgressMode = typedArray.getBoolean(R.styleable.CustomCallbackView_ccvProgressBar, false)
+            if (isProgressMode){
+                btnTitle.visibility = INVISIBLE
+                btnSubtitle.visibility = INVISIBLE
+                mainProgressBar.visibility = VISIBLE
+            }else{
+                btnTitle.visibility = VISIBLE
+                btnSubtitle.visibility = VISIBLE
+                mainProgressBar.visibility = GONE
+            }
+        }
+
+
+        typedArray.recycle()
+    }
+
+
+
+
+
+//    (
+//    context: Context,
+//    attrs: AttributeSet?,
+//    defStyleAttr: Int,
+//    defStyleRes: Int
+//) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
 //    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(
 //        context,
