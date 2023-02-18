@@ -1,13 +1,15 @@
 package com.vk.directop.dolganov_lesson_3_1
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.cardview.widget.CardView
+import androidx.core.content.res.ResourcesCompat
 import com.vk.directop.dolganov_lesson_3_1.databinding.CustomButtonBinding
 
-enum class OnCustomCallbackViewAction{
-    PUSH, NOTPUSH
+enum class OnCustomCallbackViewAction {
+    PUSH
 }
 
 typealias OnCustomCallbackViewActionListener = (OnCustomCallbackViewAction) -> Unit
@@ -24,7 +26,7 @@ constructor(
     private var listener: OnCustomCallbackViewActionListener? = null
 
 
-    init{
+    init {
         val inflater = LayoutInflater.from(context)
         inflater.inflate(R.layout.custom_button, this, true)
         binding = CustomButtonBinding.bind(this)
@@ -32,26 +34,27 @@ constructor(
         initListeners()
     }
 
-    private fun initializeAttributes(attrs: AttributeSet?, defStyleAttr: Int){
+    private fun initializeAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         if (attrs == null) return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomCallbackView)
 
-        with(binding){
+        with(binding) {
             val ccvTitle = typedArray.getString(R.styleable.CustomCallbackView_ccvTitle)
-            btnTitle.text = ccvTitle
+            setCcvTitle(ccvTitle)
 
             val ccvSubtitle = typedArray.getString(R.styleable.CustomCallbackView_ccvSubtitle)
-            btnSubtitle.text = ccvSubtitle
+            setCcvSubtitle(ccvSubtitle)
 
             val ccvImage = typedArray.getDrawable(R.styleable.CustomCallbackView_ccvImage)
-            btnIcon.setImageDrawable(ccvImage)
+            setCcvImage(ccvImage)
 
-            val isProgressMode = typedArray.getBoolean(R.styleable.CustomCallbackView_ccvProgressBar, false)
-            if (isProgressMode){
+            val isProgressMode =
+                typedArray.getBoolean(R.styleable.CustomCallbackView_ccvProgressBar, false)
+            if (isProgressMode) {
                 btnTitle.visibility = INVISIBLE
                 btnSubtitle.visibility = INVISIBLE
                 mainProgressBar.visibility = VISIBLE
-            }else{
+            } else {
                 btnTitle.visibility = VISIBLE
                 btnSubtitle.visibility = VISIBLE
                 mainProgressBar.visibility = GONE
@@ -61,33 +64,31 @@ constructor(
         typedArray.recycle()
     }
 
-    private fun initListeners(){
+    private fun initListeners() {
         binding.root.setOnClickListener {
             this.listener?.invoke(OnCustomCallbackViewAction.PUSH)
         }
     }
-    fun setListener(listener: OnCustomCallbackViewActionListener?){
+
+    fun setListener(listener: OnCustomCallbackViewActionListener?) {
         this.listener = listener
     }
 
+    fun setCcvTitle(text: String?) {
+        binding.btnTitle.text = text ?: "Android trainee"
+    }
 
+    fun setCcvSubtitle(text: String?) {
+        binding.btnSubtitle.text = text ?: "Стажировка по направлению Android"
+    }
 
-
-
-//    (
-//    context: Context,
-//    attrs: AttributeSet?,
-//    defStyleAttr: Int,
-//    defStyleRes: Int
-//) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
-
-//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(
-//        context,
-//        attrs,
-//        defStyleAttr,
-//        0
-//    )
-//
-//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(context, attrs, 0)
-//    constructor(context: Context) : this(context, null)
+    fun setCcvImage(drawable: Drawable?) {
+        binding.btnIcon.setImageDrawable(
+            drawable ?: ResourcesCompat.getDrawable(
+                resources,
+                R.drawable.a_logo,
+                null
+            )
+        )
+    }
 }

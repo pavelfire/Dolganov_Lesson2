@@ -17,6 +17,10 @@ class ButtonActivity : AppCompatActivity() {
 
         with(binding) {
 
+            mainBtn.setCcvTitle("Android Trainee")
+            mainBtn.setCcvSubtitle("Стажировка по направлению Android")
+            mainBtn.setCcvImage(getDrawable(R.drawable.a_logo))
+
             mainBtn.setListener {
                 if (it == OnCustomCallbackViewAction.PUSH)
                     Toast.makeText(this@ButtonActivity, "pressed", Toast.LENGTH_LONG).show()
