@@ -2,6 +2,8 @@ package com.vk.directop.dolganov_lesson_3_1
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Parcel
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.cardview.widget.CardView
@@ -96,5 +98,53 @@ constructor(
                 null
             )
         )
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        val superState = super.onSaveInstanceState()!!
+        val savedState = SavedState(superState)
+        savedState.titleText = binding.btnTitle.text.toString()
+        savedState.subtitleText = binding.btnSubtitle.text.toString()
+
+        return savedState
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        val savedState = state as SavedState
+        super.onRestoreInstanceState(savedState.superState)
+        binding.btnTitle.text = savedState.titleText
+        binding.btnSubtitle.text = savedState.subtitleText
+    }
+
+    class SavedState : BaseSavedState {
+
+        var titleText: String? = null
+        var subtitleText: String? = null
+
+        constructor(superState: Parcelable) : super(superState)
+        constructor(parcel: Parcel) : super(parcel) {
+            titleText = parcel.readString()
+            subtitleText = parcel.readString()
+        }
+
+        override fun writeToParcel(out: Parcel, flags: Int) {
+            super.writeToParcel(out, flags)
+            out.writeString(titleText)
+            out.writeString(subtitleText)
+        }
+
+        companion object {
+            @JvmField
+            val CREATOR: Parcelable.Creator<SavedState> = object : Parcelable.Creator<SavedState> {
+                override fun createFromParcel(source: Parcel): SavedState {
+                    return SavedState(source)
+                }
+
+                override fun newArray(size: Int): Array<SavedState?> {
+                    return Array(size) { null }
+                }
+
+            }
+        }
     }
 }
