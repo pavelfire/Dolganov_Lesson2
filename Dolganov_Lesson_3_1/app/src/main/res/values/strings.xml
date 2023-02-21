@@ -20,4 +20,5 @@
     <string name="gallery">Галерея</string>
     <string name="title_text">Android trainee</string>
     <string name="subtitle_text">Стажировка по направлению Android</string>
+    <string name="vacancy_detail">О вакансии</string>
 </resources>

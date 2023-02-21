@@ -6,13 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentVacancyDetailBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class VacancyDetailFragment : Fragment() {
 
-    //lateinit var binding: VacancyDe
+    lateinit var binding: FragmentVacancyDetailBinding
+
 
     private var param1: Int? = null
     private var param2: String? = null
@@ -29,7 +31,15 @@ class VacancyDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
+        binding = FragmentVacancyDetailBinding.inflate(inflater)
+
+        activity?.setTitle(R.string.vacancy_detail)
+
+        with(binding) {
+            tvTitle.text = param1.toString()
+            tvSubtitle.text = param2
+        }
 
         Toast.makeText(activity, "Text: $param1 param2: $param2", Toast.LENGTH_LONG).show()
 
