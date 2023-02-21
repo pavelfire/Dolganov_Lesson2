@@ -10,9 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent
 
-/**
- * A fragment representing a list of Items.
- */
 class VacanciesFragment : Fragment() {
 
     private var columnCount = 1
@@ -46,10 +43,8 @@ class VacanciesFragment : Fragment() {
 
     companion object {
 
-        // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
 
-        // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
             VacanciesFragment().apply {

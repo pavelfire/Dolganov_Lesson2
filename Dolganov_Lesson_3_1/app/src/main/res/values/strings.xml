@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dolganov_Lesson_3_1</string>
+    <string name="app_name">L5 Dolganov</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="a_logo">Aston logo</string>
     <string name="greeting_pic">greeting Aston picture</string>
@@ -16,4 +16,6 @@
     <string name="contacts">Контакты</string>
     <string name="vacancies">Вакансии</string>
     <string name="gallery">Галерея</string>
+    <string name="title_text">Android trainee</string>
+    <string name="subtitle_text">Стажировка по направлению Android</string>
 </resources>
