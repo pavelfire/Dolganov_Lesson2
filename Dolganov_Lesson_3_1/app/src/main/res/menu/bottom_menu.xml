@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main"
+        android:enabled="true"
+        android:title="Main"
+        android:icon="@drawable/ic_launcher_foreground"
+        />
+    <item
+        android:id="@+id/vacancies"
+        android:enabled="true"
+        android:title="Vacancies"
+        android:icon="@drawable/ic_launcher_foreground"
+        />
+    <item
+        android:id="@+id/offices"
+        android:enabled="true"
+        android:title="Offices"
+        android:icon="@drawable/ic_launcher_foreground"
+        />
+
+</menu>
