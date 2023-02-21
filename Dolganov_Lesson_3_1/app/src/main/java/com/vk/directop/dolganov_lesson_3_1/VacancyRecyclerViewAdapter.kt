@@ -39,5 +39,4 @@ class VacancyRecyclerViewAdapter(
             return super.toString() + " '" + contentView.text + "'"
         }
     }
-
 }

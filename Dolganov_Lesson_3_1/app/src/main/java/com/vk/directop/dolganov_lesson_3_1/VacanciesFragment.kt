@@ -28,6 +28,8 @@ class VacanciesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_vacancies_list, container, false)
 
+        activity?.setTitle(R.string.vacancies)
+
         // Set the adapter
         if (view is RecyclerView) {
             with(view) {

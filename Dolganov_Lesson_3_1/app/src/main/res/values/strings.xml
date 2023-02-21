@@ -13,6 +13,8 @@
     <string name="rostov_on_don">Ростов-на-Дону</string>
     <string name="minsk">Минск</string>
     <string name="gomel">Гомель</string>
+    <string name="login_title">Логин</string>
+    <string name="main">Главная</string>
     <string name="contacts">Контакты</string>
     <string name="vacancies">Вакансии</string>
     <string name="gallery">Галерея</string>
