@@ -8,13 +8,14 @@ import android.widget.TextView
 
 import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent.PlaceholderItem
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentVacanciesBinding
+import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent
 
 /**
  * [RecyclerView.Adapter] that can display a [PlaceholderItem].
  * TODO: Replace the implementation with code for your data type.
  */
 class VacancyRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
+    private val values: List<PlaceholderContent.VacancyItem>
 ) : RecyclerView.Adapter<VacancyRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,8 +32,8 @@ class VacancyRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.idView.text = item.title
+        holder.contentView.text = item.subtitle
     }
 
     override fun getItemCount(): Int = values.size
