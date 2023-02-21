@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent
 
-class VacanciesFragment : Fragment() {
+class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListener {
 
     private var columnCount = 1
 
@@ -37,7 +37,16 @@ class VacanciesFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = VacancyRecyclerViewAdapter(PlaceholderContent.ITEMS)
+                adapter = VacancyRecyclerViewAdapter( PlaceholderContent.ITEMS,
+                object : VacancyRecyclerViewAdapter.OnVacancyListener{
+                    override fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem) {
+                        requireActivity().supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragment_container, VacancyDetailFragment.newInstance(vacancy.id, vacancy.title))
+                            .commit()
+                    }
+
+                }
+                    )
             }
         }
         return view
@@ -54,5 +63,11 @@ class VacanciesFragment : Fragment() {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }
             }
+    }
+
+    override fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container, VacancyDetailFragment.newInstance(vacancy.id,"r"))
+            .commit()
     }
 }
