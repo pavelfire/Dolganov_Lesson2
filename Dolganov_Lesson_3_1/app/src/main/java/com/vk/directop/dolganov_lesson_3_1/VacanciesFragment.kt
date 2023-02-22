@@ -37,17 +37,25 @@ class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListen
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = VacancyRecyclerViewAdapter( PlaceholderContent.ITEMS,
-                object : VacancyRecyclerViewAdapter.OnVacancyListener{
-                    override fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem) {
-                        requireActivity().supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container, VacancyDetailFragment.newInstance(vacancy.id, vacancy.title))
-                            .addToBackStack(null)
-                            .commit()
-                    }
+                adapter = VacancyRecyclerViewAdapter(PlaceholderContent.ITEMS,
+                    object : VacancyRecyclerViewAdapter.OnVacancyListener {
+                        override fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem) {
+                            requireActivity().supportFragmentManager.beginTransaction()
+                                .replace(
+                                    R.id.fragment_container, VacancyDetailFragment.newInstance(
+                                        vacancy.title,
+                                        vacancy.subtitle,
+                                        vacancy.whatToDo,
+                                        vacancy.requirements,
+                                        vacancy.socialPack
+                                    )
+                                )
+                                .addToBackStack(null)
+                                .commit()
+                        }
 
-                }
-                    )
+                    }
+                )
             }
         }
         return view
@@ -68,7 +76,15 @@ class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListen
 
     override fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem) {
         requireActivity().supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, VacancyDetailFragment.newInstance(vacancy.id,"r"))
+            .add(
+                R.id.fragment_container, VacancyDetailFragment.newInstance(
+                    vacancy.title,
+                    vacancy.subtitle,
+                    vacancy.whatToDo,
+                    vacancy.requirements,
+                    vacancy.socialPack
+                )
+            )
             .commit()
     }
 }

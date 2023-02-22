@@ -1,62 +1,81 @@
 package com.vk.directop.dolganov_lesson_3_1
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentVacancyDetailBinding
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_TITLE = "title"
+private const val ARG_SUBTITLE = "subtitle"
+private const val ARG_WHAT_TO_DO = "whatToDo"
+private const val ARG_REQUIREMENTS = "requirements"
+private const val ARG_SOCIAL_PACK = "socialPack"
 
 class VacancyDetailFragment : Fragment() {
 
+    private var title: String? = null
+    private var subtitle: String? = null
+    private var whatToDo: String? = null
+    private var requirements: String? = null
+    private var socialPack: String? = null
+
     lateinit var binding: FragmentVacancyDetailBinding
-
-
-    private var param1: Int? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getInt(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            title = it.getString(ARG_TITLE)
+            subtitle = it.getString(ARG_SUBTITLE)
+            whatToDo = it.getString(ARG_WHAT_TO_DO)
+            requirements = it.getString(ARG_REQUIREMENTS)
+            socialPack = it.getString(ARG_SOCIAL_PACK)
+
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentVacancyDetailBinding.inflate(inflater)
 
         activity?.setTitle(R.string.vacancy_detail)
 
-        Toast.makeText(activity, "Text: $param1 param2: $param2", Toast.LENGTH_LONG).show()
-
         with(binding) {
-            tvTitle.text = param1.toString()
-            tvSubtitle.text = "Received: $param2"
+            tvTitle.text = title
+            tvSubtitle.text = subtitle
+            tvWhatToDo.text = whatToDo
+            tvRequirements.text = requirements
+            tvSocialPack.text = socialPack
+
+
         }
-        binding.tvSubtitle.text = "Received: $param2"
 
-
-
-        return inflater.inflate(R.layout.fragment_vacancy_detail, container, false)
+        return binding.root
     }
+
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: Int, param2: String) =
+        fun newInstance(title: String,
+                        subtitle: String,
+                        whatToDo: String,
+                        requirements: String,
+                        socialPack: String
+
+        ) =
             VacancyDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putInt(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_TITLE, title)
+                    putString(ARG_SUBTITLE, subtitle)
+                    putString(ARG_WHAT_TO_DO, whatToDo)
+                    putString(ARG_REQUIREMENTS, requirements)
+                    putString(ARG_SOCIAL_PACK, socialPack)
                 }
             }
+
     }
 }
