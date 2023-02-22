@@ -28,10 +28,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.offices -> {
                     replaceFragment(OfficesFragment())
-//                    supportFragmentManager.beginTransaction()
-//                        .replace(R.id.fragment_container, OfficesFragment.newInstance(1))
-//                        .addToBackStack(null)
-//                        .commit()
                 }
             }
             true
@@ -40,10 +36,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, SplashFragment())
             .commit()
-
-//        supportFragmentManager.beginTransaction()
-//            .add(R.id.fragment_container, LoginFragment.newInstance("w","r"))
-//            .commit()
 
 //        supportFragmentManager.beginTransaction()
 //            .add(R.id.fragment_container, VacanciesFragment.newInstance(1))
