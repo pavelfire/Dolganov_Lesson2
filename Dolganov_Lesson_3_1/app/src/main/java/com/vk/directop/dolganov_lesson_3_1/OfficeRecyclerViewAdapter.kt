@@ -3,59 +3,48 @@ package com.vk.directop.dolganov_lesson_3_1
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.vk.directop.dolganov_lesson_3_1.databinding.VacancyItemBinding
-import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent
+import com.vk.directop.dolganov_lesson_3_1.databinding.OfficeItemBinding
+import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholderContent
 
-class VacancyRecyclerViewAdapter(
-    private val values: List<PlaceholderContent.VacancyItem>,
+class OfficeRecyclerViewAdapter(
+    private val values: List<OfficePlaceholderContent.OfficeItem>,
     private val actionListener: OnVacancyListener
-) : RecyclerView.Adapter<VacancyRecyclerViewAdapter.ViewHolder>(), View.OnClickListener {
+) : RecyclerView.Adapter<OfficeRecyclerViewAdapter.ViewHolder>(), View.OnClickListener {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val binding = VacancyItemBinding.inflate(
+        val binding = OfficeItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
         )
         binding.root.setOnClickListener(this)
-        binding.cardView.setOnClickListener(this)
 
         return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.vacancyTitle.text = item.title
-        holder.vacancySubtitle.text = item.subtitle
+        holder.cardView.text = item.city
 
         holder.cardView.tag = item
-        holder.vacancyTitle.tag = item
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: VacancyItemBinding) :
+    inner class ViewHolder(binding: OfficeItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        val vacancyTitle: TextView = binding.tvTitle
-        val vacancySubtitle: TextView = binding.tvSubtitle
-
         val cardView = binding.cardView
-
-        override fun toString(): String {
-            return super.toString() + " '" + vacancySubtitle.text + "'"
-        }
     }
 
     interface OnVacancyListener{
-        fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem)
+        fun onVacancyClick(vacancy: OfficePlaceholderContent.OfficeItem)
     }
 
     override fun onClick(view: View) {
-        val vacancy = view.tag as PlaceholderContent.VacancyItem
+        val vacancy = view.tag as OfficePlaceholderContent.OfficeItem
         when(view.id){
             R.id.tv_title ->{  }
             else -> {

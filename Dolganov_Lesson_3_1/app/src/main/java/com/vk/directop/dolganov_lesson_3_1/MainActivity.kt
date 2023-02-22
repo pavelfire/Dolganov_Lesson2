@@ -27,25 +27,27 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(VacanciesFragment())
                 }
                 R.id.offices -> {
-//                    replaceFragment(MainFragment())
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, LoginFragment.newInstance("w", "r"))
-                        .addToBackStack(null)
-                        .commit()
+                    replaceFragment(OfficesFragment())
+//                    supportFragmentManager.beginTransaction()
+//                        .replace(R.id.fragment_container, OfficesFragment.newInstance(1))
+//                        .addToBackStack(null)
+//                        .commit()
                 }
             }
             true
         }
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, SplashFragment())
+            .commit()
+
 //        supportFragmentManager.beginTransaction()
 //            .add(R.id.fragment_container, LoginFragment.newInstance("w","r"))
 //            .commit()
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, VacanciesFragment.newInstance(1))
-            .commit()
-
-
+//        supportFragmentManager.beginTransaction()
+//            .add(R.id.fragment_container, VacanciesFragment.newInstance(1))
+//            .commit()
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -53,5 +55,11 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction() //начать транзакцию
             .replace(R.id.fragment_container, fragment) // действие
             .commit() // закончить транзакцию
+    }
+
+    fun movetoNext(){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, LoginFragment.newInstance("w","r"))
+            .commit()
     }
 }

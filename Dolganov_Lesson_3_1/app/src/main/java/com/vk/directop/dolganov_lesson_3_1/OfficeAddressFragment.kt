@@ -7,21 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentCityAddressBinding
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CITY = "param1"
+private const val ARG_ADDRESS = "param2"
 
-class CityAddressFragment : Fragment() {
+class OfficeAddressFragment : Fragment() {
 
-    private var param1: String? = null
-    private var param2: String? = null
+    private var city: String? = null
+    private var address: String? = null
 
     lateinit var binding: FragmentCityAddressBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            city = it.getString(ARG_CITY)
+            address = it.getString(ARG_ADDRESS)
         }
     }
 
@@ -31,18 +31,21 @@ class CityAddressFragment : Fragment() {
     ): View {
         binding = FragmentCityAddressBinding.inflate(inflater)
 
-        activity?.title = "Адрес офиса"
+        activity?.title = "Адрес офиса в г. $city"
+
+        binding.tvCity.text = city
+        binding.tvAddress.text = address
 
         return binding.root
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CityAddressFragment().apply {
+        fun newInstance(city: String, address: String) =
+            OfficeAddressFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_CITY, city)
+                    putString(ARG_ADDRESS, address)
                 }
             }
     }
