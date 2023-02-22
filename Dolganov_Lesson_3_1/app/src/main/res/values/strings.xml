@@ -21,4 +21,6 @@
     <string name="title_text">Android trainee</string>
     <string name="subtitle_text">Стажировка по направлению Android</string>
     <string name="vacancy_detail">О вакансии</string>
+    <string name="password">Пароль</string>
+    <string name="name">Имя</string>
 </resources>

@@ -36,12 +36,14 @@ class VacancyDetailFragment : Fragment() {
 
         activity?.setTitle(R.string.vacancy_detail)
 
+        Toast.makeText(activity, "Text: $param1 param2: $param2", Toast.LENGTH_LONG).show()
+
         with(binding) {
             tvTitle.text = param1.toString()
-            tvSubtitle.text = param2
+            tvSubtitle.text = "Received: $param2"
         }
+        binding.tvSubtitle.text = "Received: $param2"
 
-        Toast.makeText(activity, "Text: $param1 param2: $param2", Toast.LENGTH_LONG).show()
 
 
         return inflater.inflate(R.layout.fragment_vacancy_detail, container, false)

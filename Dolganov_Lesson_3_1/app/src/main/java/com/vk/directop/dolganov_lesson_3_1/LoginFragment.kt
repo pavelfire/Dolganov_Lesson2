@@ -46,12 +46,16 @@ class LoginFragment : Fragment() {
                             MainFragment.newInstance("w", "r")
                         )
                         .commit()
+                }else{
+                    //editPassword.error = "Неверный пароль"
+                    editPassword.setError("Неверный пароль", null)
+                    //editPassword.errorIconDrawable = null
                 }
             }
 
             editPassword.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable) {
-                    binding.buttonLogin.isEnabled = s.isEmpty()
+                    binding.buttonLogin.isEnabled = s.isNotEmpty()
                 }
 
                 override fun beforeTextChanged(
@@ -60,11 +64,11 @@ class LoginFragment : Fragment() {
                     count: Int,
                     after: Int
                 ) {
-                    binding.buttonLogin.isEnabled = s.isEmpty()
+                    binding.buttonLogin.isEnabled = s.isNotEmpty()
                 }
 
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                    binding.buttonLogin.isEnabled = s.isEmpty()
+                    binding.buttonLogin.isEnabled = s.isNotEmpty()
                 }
             })
         }

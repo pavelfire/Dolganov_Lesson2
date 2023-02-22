@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var bottomMenu : BottomNavigationView
+    private lateinit var bottomMenu: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,16 +16,22 @@ class MainActivity : AppCompatActivity() {
         bottomMenu = findViewById(R.id.bottomNavigationView)
 
         bottomMenu.setOnItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.main -> {
                     val menuFragment = MainFragment()
                     replaceFragment(menuFragment)
                 }
                 R.id.vacancies -> {
+                    // если сейчас майн добавить в стэк иначе заменить
+                    // если детайл то удалить из бак стека и заменить
                     replaceFragment(VacanciesFragment())
                 }
                 R.id.offices -> {
-                    replaceFragment(MainFragment())
+//                    replaceFragment(MainFragment())
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, LoginFragment.newInstance("w", "r"))
+                        .addToBackStack(null)
+                        .commit()
                 }
             }
             true
@@ -41,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager // обращаемся к fm
             .beginTransaction() //начать транзакцию

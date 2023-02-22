@@ -42,6 +42,7 @@ class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListen
                     override fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem) {
                         requireActivity().supportFragmentManager.beginTransaction()
                             .replace(R.id.fragment_container, VacancyDetailFragment.newInstance(vacancy.id, vacancy.title))
+                            .addToBackStack(null)
                             .commit()
                     }
 
