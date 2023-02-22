@@ -6,6 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+private const val LAST_SELECTED_ITEM = "item"
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomMenu: BottomNavigationView
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(menuFragment)
                 }
                 R.id.vacancies -> {
-                    // если сейчас майн добавить в стэк иначе заменить
+                    //сделать если сейчас майн добавить в стэк иначе заменить
                     // если детайл то удалить из бак стека и заменить
                     replaceFragment(VacanciesFragment())
                 }
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             .commit() // закончить транзакцию
     }
 
-    fun movetoNext() {
+    fun moveToNext() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, LoginFragment.newInstance("w", "r"))
             .commit()

@@ -10,16 +10,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentLoginBinding
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class LoginFragment : Fragment() {
+class LoginFragment() : Fragment(), CoroutineScope {
 
     private var param1: String? = null
     private var param2: String? = null
 
     lateinit var binding: FragmentLoginBinding
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + Job()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,14 +48,21 @@ class LoginFragment : Fragment() {
                 if (editPassword.text.toString() == "7") {
                     Log.d("ew", "ura")
 
-                    requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                        .visibility = View.VISIBLE
-                    requireActivity().supportFragmentManager.beginTransaction()
-                        .replace(
-                            R.id.fragment_container,
-                            MainFragment.newInstance("w", "r")
-                        )
-                        .commit()
+                    launch {
+                        progressBar.visibility = View.VISIBLE
+                        delay(1500)
+                        requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                            .visibility = View.VISIBLE
+                        requireActivity().supportFragmentManager.beginTransaction()
+                            .replace(
+                                R.id.fragment_container,
+                                MainFragment.newInstance("w", "r")
+                            )
+                            .commit()
+
+                    }
+
+
                 } else {
                     editPassword.setError("Неверный пароль", null)
                 }

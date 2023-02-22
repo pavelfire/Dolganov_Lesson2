@@ -20,7 +20,7 @@ class SplashFragment : Fragment(), CoroutineScope {
         launch {
             delay(1500)
             withContext(Dispatchers.Main){
-                (activity as MainActivity).movetoNext()
+                (activity as MainActivity).moveToNext()
             }
         }
     }
