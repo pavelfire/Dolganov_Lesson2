@@ -39,7 +39,7 @@ object PlaceholderContent {
         )
         addItem(
             VacancyItem(
-                2, "Java Developer", "опыт работы в роли Java Developer от 4-х лет",
+                2, "Java Developer", "опыт в роли Java Developer от 4-х лет",
                 "разрабатывать приложения, которые масштабируются на все дистанционные каналы банка: интернет-банк, мобильные приложения, платёжные сервисы и др.;\n" +
                         "коммуницировать с командами разработки, Data Science, поддержки и другими;\n" +
                         "создавать Fintech-решения с применением современного технологического стека;\n" +
@@ -83,8 +83,7 @@ object PlaceholderContent {
         addItem(
             VacancyItem(
                 4,
-                "Android Developer",
-                "Технологический стек на проекте: Java/Kotlin, RxJava/Coroutines, MVP/MVVM/MVI.",
+                "Android Developer","Kotlin, Coroutines, MVP/MVVM/MVI.",
                 "",
                 "опыт коммерческой разработки под Android от 3-х лет;\n" +
                         "хорошие знания и понимание принципов работы компонентов Android;\n" +
