@@ -2,6 +2,7 @@ package com.vk.directop.dolganov_lesson_3_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -33,13 +34,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        bottomMenu.visibility = View.GONE
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, SplashFragment())
             .commit()
-
-//        supportFragmentManager.beginTransaction()
-//            .add(R.id.fragment_container, VacanciesFragment.newInstance(1))
-//            .commit()
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -49,9 +48,9 @@ class MainActivity : AppCompatActivity() {
             .commit() // закончить транзакцию
     }
 
-    fun movetoNext(){
+    fun movetoNext() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, LoginFragment.newInstance("w","r"))
+            .replace(R.id.fragment_container, LoginFragment.newInstance("w", "r"))
             .commit()
     }
 }

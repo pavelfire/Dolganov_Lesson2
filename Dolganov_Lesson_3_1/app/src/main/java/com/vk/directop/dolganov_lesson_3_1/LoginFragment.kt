@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentLoginBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -41,13 +42,16 @@ class LoginFragment : Fragment() {
             buttonLogin.setOnClickListener {
                 if (editPassword.text.toString() == "7") {
                     Log.d("ew", "ura")
+
+                    requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                        .visibility = View.VISIBLE
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(
                             R.id.fragment_container,
                             MainFragment.newInstance("w", "r")
                         )
                         .commit()
-                }else{
+                } else {
                     editPassword.setError("Неверный пароль", null)
                 }
             }
