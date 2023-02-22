@@ -2,9 +2,10 @@
 <resources>
     <declare-styleable name="CustomCallbackView">
 
-        <attr name="ccv_image" format="reference"/>
-        <attr name="ccv_title" format="string"/>
-        <attr name="ccv_subtitle" format="string"/>
+        <attr name="ccvImage" format="reference"/>
+        <attr name="ccvTitle" format="string"/>
+        <attr name="ccvSubtitle" format="string"/>
+        <attr name="isProgressMode" format="boolean"/>
 
     </declare-styleable>
 </resources>

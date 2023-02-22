@@ -6,25 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ButtonActivity">
 
-    <include
+    <com.vk.directop.dolganov_lesson_3_1.CustomCallbackView
         android:id="@+id/main_btn"
-        layout="@layout/custom_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:ccvImage="@drawable/a_logo"
+        app:ccvSubtitle="How to stand a good programmer"
+        app:ccvTitle="Senior Android Developer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/mainProgressBar"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
