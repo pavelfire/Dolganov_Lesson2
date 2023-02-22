@@ -47,9 +47,7 @@ class LoginFragment : Fragment() {
                         )
                         .commit()
                 }else{
-                    //editPassword.error = "Неверный пароль"
                     editPassword.setError("Неверный пароль", null)
-                    //editPassword.errorIconDrawable = null
                 }
             }
 
