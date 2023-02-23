@@ -30,7 +30,6 @@ class OfficesFragment : Fragment(), OfficeRecyclerViewAdapter.OnVacancyListener 
 
         activity?.setTitle(R.string.offices)
 
-        // Set the adapter
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = when {

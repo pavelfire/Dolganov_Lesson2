@@ -44,6 +44,8 @@ class LoginFragment() : Fragment(), CoroutineScope {
 
         with(binding) {
             buttonLogin.isEnabled = false
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                .visibility = View.INVISIBLE
             buttonLogin.setOnClickListener {
                 if (editPassword.text.toString() == "7") {
                     Log.d("ew", "ura")

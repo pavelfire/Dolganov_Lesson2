@@ -2,11 +2,14 @@ package com.vk.directop.dolganov_lesson_3_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 private const val LAST_SELECTED_ITEM = "item"
+private var received = 0
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,22 +28,38 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(menuFragment)
                 }
                 R.id.vacancies -> {
-                    //сделать если сейчас майн добавить в стэк иначе заменить
-                    // если детайл то удалить из бак стека и заменить
-                    replaceFragment(VacanciesFragment())
+                    supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    supportFragmentManager
+                        .beginTransaction()
+                        .add(R.id.fragment_container, MainFragment())
+                        .addToBackStack("")
+                        .replace(R.id.fragment_container, VacanciesFragment())
+                        .commit()
                 }
                 R.id.offices -> {
-                    replaceFragment(OfficesFragment())
+                    supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    supportFragmentManager
+                        .beginTransaction()
+                        .add(R.id.fragment_container, MainFragment())
+                        .addToBackStack("")
+                        .replace(R.id.fragment_container, OfficesFragment())
+                        .commit()
                 }
             }
             true
         }
 
-        bottomMenu.visibility = View.GONE
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, SplashFragment())
-            .commit()
+
+        if (savedInstanceState == null){
+            Log.d("TAG", "get SaveInstanceState")
+            bottomMenu.visibility = View.GONE
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, SplashFragment())
+                .commit()
+        }
+
+
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -54,5 +73,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, LoginFragment.newInstance("w", "r"))
             .commit()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d("TAG", "onSaveInstanceState Called")
+        outState.putInt(LAST_SELECTED_ITEM, received)
     }
 }
