@@ -3,7 +3,7 @@ package com.vk.directop.dolganov_lesson_3_1.placeholder
 import java.util.ArrayList
 import java.util.HashMap
 
-object OfficePlaceholderContent {
+object OfficePlaceholder {
 
     val ITEMS: MutableList<OfficeItem> = ArrayList()
 

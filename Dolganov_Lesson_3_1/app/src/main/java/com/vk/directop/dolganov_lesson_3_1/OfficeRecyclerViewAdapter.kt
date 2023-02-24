@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vk.directop.dolganov_lesson_3_1.databinding.OfficeItemBinding
-import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholderContent
+import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholder
 
 class OfficeRecyclerViewAdapter(
-    private val values: List<OfficePlaceholderContent.OfficeItem>,
+    private val values: List<OfficePlaceholder.OfficeItem>,
     private val actionListener: OnVacancyListener
 ) : RecyclerView.Adapter<OfficeRecyclerViewAdapter.ViewHolder>(), View.OnClickListener {
 
@@ -40,11 +40,11 @@ class OfficeRecyclerViewAdapter(
     }
 
     interface OnVacancyListener {
-        fun onVacancyClick(vacancy: OfficePlaceholderContent.OfficeItem)
+        fun onVacancyClick(vacancy: OfficePlaceholder.OfficeItem)
     }
 
     override fun onClick(view: View) {
-        val vacancy = view.tag as OfficePlaceholderContent.OfficeItem
+        val vacancy = view.tag as OfficePlaceholder.OfficeItem
         when (view.id) {
             R.id.tv_title -> {}
             else -> {

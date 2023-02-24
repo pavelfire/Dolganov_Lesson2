@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vk.directop.dolganov_lesson_3_1.databinding.VacancyItemBinding
-import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent
+import com.vk.directop.dolganov_lesson_3_1.placeholder.VacancyPlaceholder
 
 class VacancyRecyclerViewAdapter(
-    private val values: List<PlaceholderContent.VacancyItem>,
+    private val values: List<VacancyPlaceholder.VacancyItem>,
     private val actionListener: OnVacancyListener
 ) : RecyclerView.Adapter<VacancyRecyclerViewAdapter.ViewHolder>(), View.OnClickListener {
 
@@ -51,11 +51,11 @@ class VacancyRecyclerViewAdapter(
     }
 
     interface OnVacancyListener {
-        fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem)
+        fun onVacancyClick(vacancy: VacancyPlaceholder.VacancyItem)
     }
 
     override fun onClick(view: View) {
-        val vacancy = view.tag as PlaceholderContent.VacancyItem
+        val vacancy = view.tag as VacancyPlaceholder.VacancyItem
         when (view.id) {
             R.id.tv_title -> {}
             else -> {

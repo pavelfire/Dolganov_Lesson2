@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.vk.directop.dolganov_lesson_3_1.VacanciesFragment.Companion.ARG_COLUMN_COUNT
 import com.vk.directop.dolganov_lesson_3_1.contract.HasCustomTitle
-import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholderContent
+import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholder
 
 class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.OnVacancyListener {
 
@@ -37,9 +36,9 @@ class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.On
                     else -> GridLayoutManager(context, columnCount)
                 }
                 adapter = OfficeRecyclerViewAdapter(
-                    OfficePlaceholderContent.ITEMS,
+                    OfficePlaceholder.ITEMS,
                     object : OfficeRecyclerViewAdapter.OnVacancyListener {
-                        override fun onVacancyClick(vacancy: OfficePlaceholderContent.OfficeItem) {
+                        override fun onVacancyClick(vacancy: OfficePlaceholder.OfficeItem) {
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragment_container, OfficeAddressFragment.newInstance(
@@ -72,7 +71,7 @@ class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.On
             }
     }
 
-    override fun onVacancyClick(vacancy: OfficePlaceholderContent.OfficeItem) {
+    override fun onVacancyClick(vacancy: OfficePlaceholder.OfficeItem) {
         requireActivity().supportFragmentManager.beginTransaction()
             .add(
                 R.id.fragment_container, OfficesFragment.newInstance(
