@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.main -> {
+                    supportFragmentManager.popBackStack(
+                        null,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
                     val menuFragment = MainFragment()
                     replaceFragment(menuFragment)
                 }
@@ -115,7 +119,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateUi() {
         val fragment = currentFragment
 
-        Log.d("TAG", "backStackEntryCount: ${supportFragmentManager.backStackEntryCount}")
+        Log.d("TAG", "curFr: ${currentFragment.tag} IS it ${currentFragment.toString().take(8) == "MainFrag"} backStackEntryCount: ${supportFragmentManager.backStackEntryCount}")
 
         if (fragment is HasCustomTitle) {
             binding.toolbar.title = getString(fragment.getTitleRes())
@@ -130,6 +134,8 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
             supportActionBar?.setDisplayShowHomeEnabled(false)
         }
-
+//        if (currentFragment.toString().take(8) == "MainFrag"){
+//            binding.bottomNavigationView.selectedItemId = R.id.main
+//        }
     }
 }
