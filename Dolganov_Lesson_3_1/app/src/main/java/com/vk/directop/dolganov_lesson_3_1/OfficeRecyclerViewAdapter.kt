@@ -39,14 +39,14 @@ class OfficeRecyclerViewAdapter(
         val cardView = binding.cardView
     }
 
-    interface OnVacancyListener{
+    interface OnVacancyListener {
         fun onVacancyClick(vacancy: OfficePlaceholderContent.OfficeItem)
     }
 
     override fun onClick(view: View) {
         val vacancy = view.tag as OfficePlaceholderContent.OfficeItem
-        when(view.id){
-            R.id.tv_title ->{  }
+        when (view.id) {
+            R.id.tv_title -> {}
             else -> {
                 actionListener.onVacancyClick(vacancy)
             }

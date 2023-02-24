@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.vk.directop.dolganov_lesson_3_1.contract.HasCustomTitle
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentVacancyDetailBinding
 
 private const val ARG_TITLE = "title"
@@ -13,7 +14,7 @@ private const val ARG_WHAT_TO_DO = "whatToDo"
 private const val ARG_REQUIREMENTS = "requirements"
 private const val ARG_SOCIAL_PACK = "socialPack"
 
-class VacancyDetailFragment : Fragment() {
+class VacancyDetailFragment : Fragment(), HasCustomTitle {
 
     private var title: String? = null
     private var subtitle: String? = null
@@ -42,30 +43,27 @@ class VacancyDetailFragment : Fragment() {
 
         binding = FragmentVacancyDetailBinding.inflate(inflater)
 
-        activity?.setTitle(R.string.vacancy_detail)
-
         with(binding) {
             tvTitle.text = title
             tvSubtitle.text = subtitle
             tvWhatToDo.text = whatToDo
             tvRequirements.text = requirements
             tvSocialPack.text = socialPack
-
-
         }
 
         return binding.root
     }
 
+    override fun getTitleRes(): Int = R.string.vacancy_detail
 
     companion object {
         @JvmStatic
-        fun newInstance(title: String,
-                        subtitle: String,
-                        whatToDo: String,
-                        requirements: String,
-                        socialPack: String
-
+        fun newInstance(
+            title: String,
+            subtitle: String,
+            whatToDo: String,
+            requirements: String,
+            socialPack: String
         ) =
             VacancyDetailFragment().apply {
                 arguments = Bundle().apply {
@@ -76,6 +74,5 @@ class VacancyDetailFragment : Fragment() {
                     putString(ARG_SOCIAL_PACK, socialPack)
                 }
             }
-
     }
 }

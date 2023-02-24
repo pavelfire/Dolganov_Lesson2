@@ -50,14 +50,14 @@ class VacancyRecyclerViewAdapter(
         }
     }
 
-    interface OnVacancyListener{
+    interface OnVacancyListener {
         fun onVacancyClick(vacancy: PlaceholderContent.VacancyItem)
     }
 
     override fun onClick(view: View) {
         val vacancy = view.tag as PlaceholderContent.VacancyItem
-        when(view.id){
-            R.id.tv_title ->{  }
+        when (view.id) {
+            R.id.tv_title -> {}
             else -> {
                 actionListener.onVacancyClick(vacancy)
             }

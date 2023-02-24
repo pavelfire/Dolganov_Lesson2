@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vk.directop.dolganov_lesson_3_1.contract.HasCustomTitle
 import com.vk.directop.dolganov_lesson_3_1.databinding.FragmentCityAddressBinding
 
 private const val ARG_CITY = "param1"
 private const val ARG_ADDRESS = "param2"
 
-class OfficeAddressFragment : Fragment() {
+class OfficeAddressFragment : Fragment(), HasCustomTitle {
 
     private var city: String? = null
     private var address: String? = null
@@ -38,6 +39,8 @@ class OfficeAddressFragment : Fragment() {
 
         return binding.root
     }
+
+    override fun getTitleRes(): Int = R.string.office_address
 
     companion object {
         @JvmStatic

@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vk.directop.dolganov_lesson_3_1.VacanciesFragment.Companion.ARG_COLUMN_COUNT
+import com.vk.directop.dolganov_lesson_3_1.contract.HasCustomTitle
 import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholderContent
 
-class OfficesFragment : Fragment(), OfficeRecyclerViewAdapter.OnVacancyListener {
+class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.OnVacancyListener {
 
     private var columnCount = 1
 
@@ -27,8 +29,6 @@ class OfficesFragment : Fragment(), OfficeRecyclerViewAdapter.OnVacancyListener 
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_offices_list, container, false)
-
-        activity?.setTitle(R.string.offices)
 
         if (view is RecyclerView) {
             with(view) {
@@ -56,6 +56,8 @@ class OfficesFragment : Fragment(), OfficeRecyclerViewAdapter.OnVacancyListener 
         }
         return view
     }
+
+    override fun getTitleRes(): Int = R.string.offices
 
     companion object {
 

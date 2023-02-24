@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vk.directop.dolganov_lesson_3_1.OfficesFragment.Companion.ARG_COLUMN_COUNT
+import com.vk.directop.dolganov_lesson_3_1.contract.HasCustomTitle
 import com.vk.directop.dolganov_lesson_3_1.placeholder.PlaceholderContent
 
-class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListener {
+class VacanciesFragment : Fragment(), HasCustomTitle, VacancyRecyclerViewAdapter.OnVacancyListener {
 
     private var columnCount = 1
 
@@ -28,9 +30,6 @@ class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListen
     ): View? {
         val view = inflater.inflate(R.layout.fragment_vacancies_list, container, false)
 
-        activity?.setTitle(R.string.vacancies)
-
-        // Set the adapter
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = when {
@@ -60,6 +59,8 @@ class VacanciesFragment : Fragment(), VacancyRecyclerViewAdapter.OnVacancyListen
         }
         return view
     }
+
+    override fun getTitleRes(): Int = R.string.vacancies
 
     companion object {
 
