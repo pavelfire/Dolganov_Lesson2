@@ -28,41 +28,11 @@ class OfficeRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: OfficeBaseViewHolder, position: Int) {
-        when (holder) {
-            is RuViewHolder -> {
-                with(holder.binding) {
-                    val item = values[position]
-                    tvTitle.text = item.city
-                    tvTitle.tag = item
-                    cardView.setOnClickListener {
-                        actionListener.onOfficeClick(item)
-                    }
-                }
-            }
-            is ByViewHolder -> {
-                with(holder.binding) {
-                    val item = values[position]
-                    tvTitle.text = item.city
-                    cardView.tag = item
-                    cardView.setOnClickListener {
-                        actionListener.onOfficeClick(item)
-                    }
-                }
-            }
-            is KzViewHolder -> {
-                with(holder.binding) {
-                    val item = values[position]
-                    tvTitle.text = item.city
-                    cardView.tag = item
-                    cardView.setOnClickListener {
-                        actionListener.onOfficeClick(item)
-                    }
-                }
-            }
-        }
+        holder.populate(values[position], actionListener)
     }
 
     override fun getItemCount(): Int = values.size
+
 
     interface OnOfficeListener {
         fun onOfficeClick(vacancy: OfficePlaceholder.OfficeItem)
