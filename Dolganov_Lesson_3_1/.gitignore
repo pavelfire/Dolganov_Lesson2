@@ -17,3 +17,5 @@ local.properties
 /.idea/gradle.xml
 /.idea/misc.xml
 /.idea/vcs.xml
+/app/release/output-metadata.json
+/app/release/aston L5-6.apk
