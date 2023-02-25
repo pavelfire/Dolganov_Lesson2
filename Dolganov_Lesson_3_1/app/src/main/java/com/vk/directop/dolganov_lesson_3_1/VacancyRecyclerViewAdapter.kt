@@ -1,17 +1,28 @@
 package com.vk.directop.dolganov_lesson_3_1
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.vk.directop.dolganov_lesson_3_1.databinding.VacancyItemBinding
 import com.vk.directop.dolganov_lesson_3_1.placeholder.VacancyPlaceholder
+import java.util.*
 
 class VacancyRecyclerViewAdapter(
     private val values: List<VacancyPlaceholder.VacancyItem>,
     private val actionListener: OnVacancyListener
-) : RecyclerView.Adapter<VacancyRecyclerViewAdapter.ViewHolder>(), View.OnClickListener {
+) : RecyclerView.Adapter<VacancyRecyclerViewAdapter.ViewHolder>(), View.OnClickListener,
+    Filterable {
+
+    var vacanciesFilterList = values
+
+    init {
+        vacanciesFilterList = values
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -27,7 +38,7 @@ class VacancyRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values[position]
+        val item = vacanciesFilterList[position]
         holder.vacancyTitle.text = item.title
         holder.vacancySubtitle.text = item.subtitle
 
@@ -35,7 +46,7 @@ class VacancyRecyclerViewAdapter(
         holder.vacancyTitle.tag = item
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = vacanciesFilterList.size
 
     inner class ViewHolder(binding: VacancyItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -60,6 +71,37 @@ class VacancyRecyclerViewAdapter(
             R.id.tv_title -> {}
             else -> {
                 actionListener.onVacancyClick(vacancy)
+            }
+        }
+    }
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()) {
+                    vacanciesFilterList = values
+                } else {
+                    val resultList = mutableListOf<VacancyPlaceholder.VacancyItem>()
+                    for (row in values) {
+                        if (row.title.lowercase(Locale.ROOT)
+                                .contains(charSearch.lowercase(Locale.ROOT))
+                        ) {
+                            resultList.add(row)
+                            Log.d("TAG", "Row: ${row.title}")
+                        }
+                    }
+                    vacanciesFilterList = resultList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = vacanciesFilterList
+                return filterResults
+            }
+
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                vacanciesFilterList = results?.values as List<VacancyPlaceholder.VacancyItem>
+                notifyDataSetChanged()
             }
         }
     }

@@ -10,4 +10,4 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".OfficesFragment"
-    tools:listitem="@layout/office_item" />
+    tools:listitem="@layout/office_item_by" />
