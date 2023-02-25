@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/office_shape"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/purple_light"
         android:padding="8dp">
 
         <ImageView

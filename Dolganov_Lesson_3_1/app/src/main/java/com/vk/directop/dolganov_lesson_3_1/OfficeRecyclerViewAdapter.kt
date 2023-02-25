@@ -64,7 +64,6 @@ class OfficeRecyclerViewAdapter(
 
     override fun getItemCount(): Int = values.size
 
-
     interface OnOfficeListener {
         fun onOfficeClick(vacancy: OfficePlaceholder.OfficeItem)
     }
