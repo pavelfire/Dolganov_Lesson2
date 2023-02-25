@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import com.vk.directop.dolganov_lesson_3_1.contract.HasCustomTitle
 import com.vk.directop.dolganov_lesson_3_1.placeholder.OfficePlaceholder
 
-class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.OnVacancyListener {
+class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.OnOfficeListener {
 
     private var columnCount = 1
 
@@ -37,8 +37,8 @@ class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.On
                 }
                 adapter = OfficeRecyclerViewAdapter(
                     OfficePlaceholder.ITEMS,
-                    object : OfficeRecyclerViewAdapter.OnVacancyListener {
-                        override fun onVacancyClick(vacancy: OfficePlaceholder.OfficeItem) {
+                    object : OfficeRecyclerViewAdapter.OnOfficeListener {
+                        override fun onOfficeClick(vacancy: OfficePlaceholder.OfficeItem) {
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragment_container, OfficeAddressFragment.newInstance(
@@ -71,7 +71,7 @@ class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.On
             }
     }
 
-    override fun onVacancyClick(vacancy: OfficePlaceholder.OfficeItem) {
+    override fun onOfficeClick(vacancy: OfficePlaceholder.OfficeItem) {
         requireActivity().supportFragmentManager.beginTransaction()
             .add(
                 R.id.fragment_container, OfficesFragment.newInstance(

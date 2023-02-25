@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/office_shape"
+        android:backgroundTint="@color/green_soft"
         android:padding="8dp">
 
         <ImageView
@@ -27,9 +28,9 @@
             android:contentDescription="@string/a_logo"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/flag_ru" />
+            app:srcCompat="@drawable/flag_by" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -42,10 +43,11 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_icon"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_icon"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Москва" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
