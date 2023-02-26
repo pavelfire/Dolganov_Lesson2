@@ -20,10 +20,33 @@ class OfficeRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfficeBaseViewHolder {
 
         return when (viewType) {
-            1 -> RuViewHolder(OfficeItemRuBinding.inflate(LayoutInflater.from(parent.context)))
-            2 -> ByViewHolder(OfficeItemByBinding.inflate(LayoutInflater.from(parent.context)))
-            3 -> KzViewHolder(OfficeItemKzBinding.inflate(LayoutInflater.from(parent.context)))
-            else -> AnotherViewHolder(OfficeItemBinding.inflate(LayoutInflater.from(parent.context)))
+            1 -> RuViewHolder(
+                OfficeItemRuBinding.inflate(
+                    LayoutInflater.from(parent.context), parent, false
+                )
+            )
+
+            2 -> ByViewHolder(
+                OfficeItemByBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+            3 -> KzViewHolder(
+                OfficeItemKzBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+            else -> AnotherViewHolder(
+                OfficeItemBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
         }
     }
 
