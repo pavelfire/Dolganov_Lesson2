@@ -62,7 +62,7 @@ class LoginFragment() : Fragment(), CoroutineScope {
                     }
 
                 } else {
-                    editPassword.setError("Неверный пароль", null)
+                    editPassword.setError("Неверный пароль, правильный пароль 7", null)
                 }
             }
 
