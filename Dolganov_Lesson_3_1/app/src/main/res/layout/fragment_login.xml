@@ -65,7 +65,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_Password"
-                android:text="7"
+                android:text=""
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
