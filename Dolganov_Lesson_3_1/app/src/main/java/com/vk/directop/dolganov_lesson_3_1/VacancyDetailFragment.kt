@@ -32,7 +32,6 @@ class VacancyDetailFragment : Fragment(), HasCustomTitle {
             whatToDo = it.getString(ARG_WHAT_TO_DO)
             requirements = it.getString(ARG_REQUIREMENTS)
             socialPack = it.getString(ARG_SOCIAL_PACK)
-
         }
     }
 

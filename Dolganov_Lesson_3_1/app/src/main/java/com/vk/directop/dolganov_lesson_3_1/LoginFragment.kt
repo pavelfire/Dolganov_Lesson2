@@ -3,7 +3,6 @@ package com.vk.directop.dolganov_lesson_3_1
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,22 +47,19 @@ class LoginFragment() : Fragment(), CoroutineScope {
                 .visibility = View.INVISIBLE
             buttonLogin.setOnClickListener {
                 if (editPassword.text.toString() == "7") {
-                    Log.d("ew", "ura")
 
                     launch {
                         progressBar.visibility = View.VISIBLE
-                        delay(1500)
+                        delay(1200)
                         requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
                             .visibility = View.VISIBLE
                         requireActivity().supportFragmentManager.beginTransaction()
                             .replace(
                                 R.id.fragment_container,
-                                MainFragment.newInstance("w", "r")
+                                MainFragment.newInstance("", "")
                             )
                             .commit()
-
                     }
-
 
                 } else {
                     editPassword.setError("Неверный пароль", null)
@@ -89,7 +85,6 @@ class LoginFragment() : Fragment(), CoroutineScope {
                 }
             })
         }
-
 
         return binding.root
     }

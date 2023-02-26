@@ -32,8 +32,6 @@ class OfficeAddressFragment : Fragment(), HasCustomTitle {
     ): View {
         binding = FragmentCityAddressBinding.inflate(inflater)
 
-        activity?.title = "Адрес офиса в г. $city"
-
         binding.tvCity.text = city
         binding.tvAddress.text = address
 
