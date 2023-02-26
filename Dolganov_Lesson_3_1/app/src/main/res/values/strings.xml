@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">Dolganov_Lesson_3_1</string>
+    <string name="app_name">L5 Dolganov</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="a_logo">Aston logo</string>
+    <string name="greeting_pic">greeting Aston picture</string>
+    <string name="it_bis">ИТ-решения для\nразвития бизнеса</string>
+    <string name="develop_programs">Разработка программного\nобеспечения</string>
+    <string name="about">О нас:</string>
+    <string name="aston_15">Aston - компания по разработке ПО с полным циклом услуг. Уже 15 лет мы помогаем заказчикам по всему миру трансформировать бизнес, создавая эффективные мобильные и десктопные решения.</string>
+    <string name="offices">Офисы</string>
+    <string name="moscow">Москва</string>
+    <string name="kazan">Казань</string>
+    <string name="rostov_on_don">Ростов-на-Дону</string>
+    <string name="minsk">Минск</string>
+    <string name="gomel">Гомель</string>
+    <string name="login_title">Логин</string>
+    <string name="main">Главная</string>
+    <string name="contacts">Контакты</string>
+    <string name="vacancies">Вакансии</string>
+    <string name="gallery">Галерея</string>
+    <string name="title_text">Android trainee</string>
+    <string name="subtitle_text">Стажировка по направлению Android</string>
+    <string name="vacancy_detail">О вакансии</string>
+    <string name="office_address">Адрес офиса</string>
+    <string name="password">Пароль</string>
+    <string name="name">Имя</string>
+    <string name="whatToDo"><b>Что мы ждём от специалиста?</b></string>
+    <string name="requirements"><b>Требования</b></string>
+    <string name="socialPack"><b>Социальный пакет</b></string>
+    <string name="login">Вход</string>
+    <string name="test_name">test@test.com</string>
+    <string name="login_button_text">Войти</string>
+
 </resources>

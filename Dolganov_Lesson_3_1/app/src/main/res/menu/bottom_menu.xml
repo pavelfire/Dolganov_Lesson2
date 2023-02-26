@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main"
+        android:enabled="true"
+        android:title="@string/main"
+        android:icon="@drawable/ic_baseline_domain_24"
+        />
+    <item
+        android:id="@+id/vacancies"
+        android:enabled="true"
+        android:title="@string/vacancies"
+        android:icon="@drawable/ic_baseline_emoji_people_24"
+        />
+    <item
+        android:id="@+id/offices"
+        android:enabled="true"
+        android:title="@string/offices"
+        android:icon="@drawable/ic_baseline_location_city_24"
+        />
+
+</menu>
