@@ -1,6 +1,7 @@
 package com.vk.directop.dolganov_lesson_3_1
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +40,7 @@ class OfficesFragment : Fragment(), HasCustomTitle, OfficeRecyclerViewAdapter.On
                     OfficePlaceholder.ITEMS,
                     object : OfficeRecyclerViewAdapter.OnOfficeListener {
                         override fun onOfficeClick(vacancy: OfficePlaceholder.OfficeItem) {
+                            Log.d("TAG", "Clicked ${vacancy.city}")
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .replace(
                                     R.id.fragment_container, OfficeAddressFragment.newInstance(
