@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/
+/app/release/Aston App.apk
+/app/release/output-metadata.json
