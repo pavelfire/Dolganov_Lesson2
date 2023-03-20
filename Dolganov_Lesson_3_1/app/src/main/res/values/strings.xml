@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Dolganov_Services</string>
+    <string name="fibonacci_textview">fibonacci TextView!</string>
+    <string name="start_service_button">start service button</string>
+    <string name="stop_service_button">stop service button</string>
+    <string name="send_broadcast_button">send broadcast button</string>
 </resources>
