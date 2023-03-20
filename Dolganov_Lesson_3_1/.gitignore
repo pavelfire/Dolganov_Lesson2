@@ -13,3 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/vcs.xml
+/app/release/output-metadata.json
+/.idea/misc.xml
+/.idea/gradle.xml
+/.idea/compiler.xml
+/app/release/Aston App.apk
